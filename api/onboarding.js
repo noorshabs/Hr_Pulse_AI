@@ -1,28 +1,39 @@
 export default function handler(req, res) {
-  const onboarding = [
-    {
-      id: 1,
-      employeeName: "John Doe",
-      documents: ["ID Proof", "Offer Letter", "Bank Details"],
-      checklist: [
-        { task: "Submit documents", status: "Completed" },
-        { task: "Create company email", status: "Pending" },
-        { task: "Complete HR orientation", status: "Pending" }
-      ],
-      progress: 33
-    },
-    {
-      id: 2,
-      employeeName: "Jane Smith",
-      documents: ["ID Proof", "Offer Letter"],
-      checklist: [
-        { task: "Submit documents", status: "Completed" },
-        { task: "Setup workstation", status: "Completed" },
-        { task: "Attend onboarding session", status: "Pending" }
-      ],
-      progress: 66
-    }
-  ];
+  const onboarding = {
+    employees: [
+      {
+        id: 1,
+        name: "John Doe",
+        role: "Software Developer",
+        department: "Engineering",
+        progress: 60
+      },
+      {
+        id: 2,
+        name: "Jane Smith",
+        role: "HR Manager",
+        department: "Human Resources",
+        progress: 80
+      }
+    ],
+    documents: [
+      {
+        employee: "John Doe",
+        uploaded: ["ID Proof", "Offer Letter"],
+        pending: ["Bank Details"]
+      },
+      {
+        employee: "Jane Smith",
+        uploaded: ["ID Proof", "Offer Letter", "Bank Details"],
+        pending: []
+      }
+    ],
+    checklist: [
+      { task: "Submit Documents", status: "Completed" },
+      { task: "HR Orientation", status: "Pending" },
+      { task: "System Setup", status: "Pending" }
+    ]
+  };
 
   res.status(200).json(onboarding);
 }
