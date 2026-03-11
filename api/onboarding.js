@@ -1,39 +1,39 @@
 export default function handler(req, res) {
-  const onboarding = {
-    employees: [
-      {
-        id: 1,
-        name: "John Doe",
-        role: "Software Developer",
-        department: "Engineering",
-        progress: 60
-      },
-      {
-        id: 2,
-        name: "Jane Smith",
-        role: "HR Manager",
-        department: "Human Resources",
-        progress: 80
-      }
-    ],
-    documents: [
-      {
-        employee: "John Doe",
-        uploaded: ["ID Proof", "Offer Letter"],
-        pending: ["Bank Details"]
-      },
-      {
-        employee: "Jane Smith",
-        uploaded: ["ID Proof", "Offer Letter", "Bank Details"],
-        pending: []
-      }
-    ],
-    checklist: [
-      { task: "Submit Documents", status: "Completed" },
-      { task: "HR Orientation", status: "Pending" },
-      { task: "System Setup", status: "Pending" }
-    ]
-  };
 
-  res.status(200).json(onboarding);
+const onboardingData = [
+{
+id: 1,
+name: "Rahul Sharma",
+role: "Software Engineer",
+progress: 60,
+documents: [
+{ name: "ID Proof", status: "Uploaded" },
+{ name: "Resume", status: "Uploaded" },
+{ name: "Offer Letter", status: "Pending" }
+],
+checklist: [
+{ task: "Offer Letter Signed", done: true },
+{ task: "Laptop Issued", done: false },
+{ task: "HR Orientation", done: false }
+]
+},
+
+{
+id: 2,
+name: "Priya Nair",
+role: "HR Executive",
+progress: 40,
+documents: [
+{ name: "ID Proof", status: "Uploaded" },
+{ name: "Resume", status: "Pending" }
+],
+checklist: [
+{ task: "Offer Letter Signed", done: true },
+{ task: "HR Orientation", done: false }
+]
+}
+]
+
+res.status(200).json(onboardingData)
+
 }
